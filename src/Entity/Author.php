@@ -29,7 +29,6 @@ class Author
     private ?\DateTimeImmutable $dateOfBirth = null;
 
     #[Assert\GreaterThan(propertyPath: 'dateOfBirth')]
-    #[Assert\NotBlank()]
     #[ORM\Column(type: Types::DATE_IMMUTABLE, nullable: true)]
     private ?\DateTimeImmutable $dateOfDeath = null;
 
