@@ -28,6 +28,9 @@ class RegistrationFormType extends AbstractType
                 'choices' => [
                     'Utilisateur-rice' => 'ROLE_USER',
                     'Administrateur-rice' => 'ROLE_ADMIN',
+                    'Modérateur' => 'ROLE_MODERATEUR',
+                    'Pouvoir ajouter un livre' => 'ROLE_AJOUT_DE_LIVRE',
+                    'Pouvoir éditer un livre' => 'ROLE_EDITION_DE_LIVRE'
                 ],
                 'expanded' => true,
                 'multiple' => true,

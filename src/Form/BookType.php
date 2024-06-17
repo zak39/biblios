@@ -5,8 +5,10 @@ namespace App\Form;
 use App\Entity\Author;
 use App\Entity\Book;
 use App\Entity\Editor;
+use App\Entity\User;
 use App\Enum\BookStatus;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
@@ -18,6 +20,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class BookType extends AbstractType
 {
+    public function __construct(private Security $security)
+    {
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -43,11 +49,16 @@ class BookType extends AbstractType
                 'multiple' => true,
                 'by_reference' => false,
             ])
+            ->add('createdBy', EntityType::class, [
+                'class' => User::class,
+                'choice_label' => 'username',
+                'multiple' => false,
+            ])
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
-    {
+    {        
         $resolver->setDefaults([
             'data_class' => Book::class,
         ]);
