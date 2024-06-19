@@ -12,6 +12,14 @@
     <div class="w-50 m-auto">
         <h1>Liste des utilisateurs</h1>
 
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="m-4">
+                <a class="btn btn-primary" role="button" href="{{ path('app_register')}}">
+                    Créer un utilisateur
+                </a>
+            </div>
+        {% endif %}
+
         <ul class="list-group list-group-flush">
             {% for user in users %}
                 <div class="card mb-1">

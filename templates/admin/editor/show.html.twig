@@ -22,11 +22,17 @@
             {% else %}
                 <div>Editeur non trouvé</div>
             {% endif %}
-            <a href="{{ path('app_admin_editor_index') }}" class="btn btn-primary">Retour</a>
-            <a href="{{ path('app_admin_editor_edit', { id: editor.id }) }}" class="btn btn-warning">Editer</a>
-            <form action="{{ path('app_admin_editor_remove', { id: editor.id }) }}" method="delete">
-                <button type="submit" class="btn btn-danger">Supprimer</button>
-            </form>
+            <div class="d-flex p-2">
+                <a href="{{ path('app_admin_editor_index') }}" class="btn btn-primary me-4">Retour</a>
+                {% if is_granted('ROLE_EDITION_DE_LIVRE') %}
+                    <a href="{{ path('app_admin_editor_edit', { id: editor.id }) }}" class="btn btn-warning me-4">Editer</a>
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <form action="{{ path('app_admin_editor_remove', { id: editor.id }) }}" method="delete">
+                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                    </form>
+                {% endif %}
+            </div>
         </div>
     </section>
 {% endblock %}

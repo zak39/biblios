@@ -17,17 +17,21 @@
                             <h4 class="mb-1">{{ user.username }}</h4>
                             <small class="text-muted">Identifiant : {{ user.id }}</small>
                         </div>
+                        <p class="card-text">{{ user.email }}</p>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">{{ user.roles|join(', ', ' et ')}}</h6>
                     </div>
                 </div>
             {% else %}
                 <div>Utilisateur non trouvé</div>
             {% endif %}
-            <a href="{{ path('app_admin_user_index') }}" class="btn btn-primary">Retour</a>
-            {% if user.username != 'admin' %}
-                <form action="{{ path('app_admin_user_remove', { id: user.id }) }}" method="delete">
-                    <button type="submit" class="btn btn-danger">Supprimer</button>
-                </form>
-            {% endif %}
+            <div class="d-flex p-2">
+                <a href="{{ path('app_admin_user_index') }}" class="btn btn-primary me-4">Retour</a>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <form action="{{ path('app_admin_user_remove', { id: user.id }) }}" method="delete">
+                        <button type="submit" class="btn btn-danger">Supprimer</button>
+                    </form>
+                {% endif %}
+            </div>
         </div>
     </section>
 {% endblock %}

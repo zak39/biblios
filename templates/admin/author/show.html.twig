@@ -29,8 +29,12 @@
             {% else %}
                 <div>Auteur non trouvé</div>
             {% endif %}
-            <a href="{{ path('app_admin_author_index') }}" class="btn btn-primary">Retour</a>
-            <a href="{{ path('app_admin_author_edit', { id: author.id }) }}" class="btn btn-warning">Editer</a>
+            <div class="d-flex p-2">
+                <a href="{{ path('app_admin_author_index') }}" class="btn btn-primary me-4">Retour</a>
+                {% if is_granted('ROLE_EDITION_DE_LIVRE') %}
+                    <a href="{{ path('app_admin_author_edit', { id: author.id }) }}" class="btn btn-warning">Editer</a>
+                {% endif %}
+            </div>
         </div>
     </section>
 {% endblock %}

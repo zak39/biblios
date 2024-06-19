@@ -12,6 +12,14 @@
     <div class="w-50 m-auto">
         <h1>Liste d'éditeurs</h1>
 
+        {% if is_granted('ROLE_AJOUT_DE_LIVRE') %}
+            <div class="m-4">
+                <a class="btn btn-primary" role="button" href="{{ path('app_admin_editor_new')}}">
+                    Créer un éditeur
+                </a>
+            </div>
+        {% endif %}
+
         <ul class="list-group list-group-flush">
             {% for editor in editors %}
                 <div class="card mb-1">
