@@ -19,6 +19,15 @@ Installation des dépendances :
 composer i
 ```
 
+Configurer sa base de données :
+
+```ini
+# .env.local
+DATABASE_URL="mysql://user:password@127.0.0.1:3306/biblios?serverVersion=8.0&charset=utf8"
+```
+
+> Ici c'est c'est un exemple avec une base MySql et le fichier `.env.local` ne sera pas pris en compte par git.
+
 Création de la database et des tables :
 
 ```bash
