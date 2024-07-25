@@ -32,13 +32,13 @@ Création de la database et des tables :
 
 ```bash
 symfony console doctrine:database:create
-symfony console doctrine:migrations:execute
+symfony console doctrine:migrations:migrate
 ```
 
 Nourrir la database de données à partir des fixtures :
 
 ```bash
-php bin/console doctrine:fixtures:load
+symfony console doctrine:fixtures:load
 ```
 
 Et enfin, lancer le serveur :
