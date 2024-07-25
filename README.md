@@ -47,6 +47,21 @@ Et enfin, lancer le serveur :
 symfony server:start -d
 ```
 
+### Shortcuts
+
+Ce projet utilise Castor comme Task Runner.
+
+Voici la commande pour l'installer :
+
+```bash
+curl "https://castor.jolicode.com/install" | bash
+```
+
+> Prioriser la documentation officielle : https://castor.jolicode.com/getting-started/installation/ .
+
+On peut connaître les commandes de base en exécutant la commande `castor` ou voir la partie Getting Started en faisant `castor getting-started`.
+
 ## Time line
 
+- le 26 juillet 2024 : Utilisation de Castor by @jolicode .
 - le 29 juin 2024 : Fin du cours d'OpenClassrooms dont le code est préservé à partir de cette date dans la branche `code-du-cours-symfony-7-d-openclassroom`.
