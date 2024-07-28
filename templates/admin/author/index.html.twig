@@ -15,7 +15,10 @@
         {% if is_granted('ROLE_AJOUT_DE_LIVRE') %}
             <div class="m-4">
                 <a class="btn btn-primary" role="button" href="{{ path('app_admin_author_new')}}">
-                    Créer un auteur
+                    <div class="d-flex justify-content-between align-items-center" style="width: 140px;">
+                        <twig:ux:icon name="material-symbols:add" width="24px" height="24px" />
+                        Créer un auteur
+                    </div>
                 </a>
             </div>
         {% endif %}
