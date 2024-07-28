@@ -15,7 +15,10 @@
         {% if is_granted('ROLE_ADMIN') %}
             <div class="m-4">
                 <a class="btn btn-primary" role="button" href="{{ path('app_register')}}">
-                    Créer un utilisateur
+                    <div class="d-flex justify-content-between align-items-center" style="width: 170px;">
+                        <twig:ux:icon name="heroicons-solid:user-add" width="24px" height="24px" />
+                        Créer un utilisateur
+                    </div>
                 </a>
             </div>
         {% endif %}

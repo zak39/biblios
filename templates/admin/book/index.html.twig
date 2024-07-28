@@ -11,7 +11,10 @@
         {% if is_granted('ROLE_AJOUT_DE_LIVRE') %}
             <div class="m-4">
                 <a class="btn btn-primary" role="button" href="{{ path('app_admin_book_new')}}">
-                    Créer un livre
+                    <div class="d-flex justify-content-between align-items-center" style="width: 130px;">
+                        <twig:ux:icon name="fluent:book-add-24-filled" width="24px" height="24px"/>
+                        Créer un livre
+                    </div>
                 </a>
             </div>
         {% endif %}
