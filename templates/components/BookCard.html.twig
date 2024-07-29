@@ -1,0 +1,21 @@
+<div class="col mb-5">
+    <div class="card h-100">
+        <!-- Couverture du livre -->
+        <img class="card-img-top" src="{{ cover }}" alt="Couverture de {{ title }}" />
+        <!-- Détail du livre -->
+        <div class="card-body p-4">
+            <div class="text-center">
+                <!-- Titre du livre -->
+                <h5 class="fw-bolder">{{ title }}</h5>
+                <!-- Auteur du livre -->
+                {{ authors|map(author => author.name)|join(', ', ' and ') }}
+            </div>
+        </div>
+        <!-- Action du livre -->
+        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+            <div class="text-center">
+                <a class="btn btn-outline-dark mt-auto" href="{{ path('app_book_show', {id: id}) }}">Voir</a>
+            </div>
+        </div>
+    </div>
+</div>

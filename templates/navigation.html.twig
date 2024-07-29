@@ -11,11 +11,11 @@
                             Admin
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ path('app_admin_author_index') }}">Auteurs</a></li>
-                            <li><a class="dropdown-item" href="{{ path('app_admin_editor_index') }}">Editeurs</a></li>
-                            <li><a class="dropdown-item" href="{{ path('app_admin_book_index') }}">Livres</a></li>
+                            <twig:Navigation:NavLink path="app_admin_author_index" title="Auteurs" />
+                            <twig:Navigation:NavLink path="app_admin_editor_index" title="Editeurs" />
+                            <twig:Navigation:NavLink path="app_admin_book_index" title="Livres" />
                             {% if is_granted('ROLE_ADMIN') %}
-                                <li><a class="dropdown-item" href="{{ path('app_admin_user_index') }}">Utilisateurs</a></li>
+                                <twig:Navigation:NavLink path="app_admin_user_index" title="Utilisateurs" />
                             {% endif %}
                         </ul>
                     </li>

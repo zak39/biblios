@@ -23,29 +23,26 @@
                 <div>Editeur non trouvé</div>
             {% endif %}
             <div class="d-flex p-2">
-                <a href="{{ path('app_admin_editor_index') }}" class="btn btn-primary me-4">
-                    <div class="d-flex justify-content-between align-items-center" style="width: 80px;">
-                        <twig:ux:icon name="typcn:arrow-back" width="24px" height="24px" />
-                        Retour
-                    </div>
-                </a>
+                <twig:ButtonAction
+                    name="Retour"
+                    action="app_admin_editor_index"
+                    type="primary"
+                    width="80"
+                    icon="typcn:arrow-back" />
                 {% if is_granted('ROLE_EDITION_DE_LIVRE') %}
-                    <a href="{{ path('app_admin_editor_edit', { id: editor.id }) }}" class="btn btn-warning me-4">
-                        <div class="d-flex justify-content-between align-items-center" style="width: 75px;">
-                            <twig:ux:icon name="ic:twotone-edit" width="24px" height="24px" />
-                            Editer
-                        </div>
-                    </a>
+                    <twig:ButtonAction
+                        name="Editer"
+                        action="app_admin_editor_edit"
+                        :parameters="{ id: editor.id }"
+                        type="warning"
+                        width="75"
+                        icon="ic:twotone-edit"
+                        size="24" />
                 {% endif %}
                 {% if is_granted('ROLE_ADMIN') %}
-                    <form action="{{ path('app_admin_editor_remove', { id: editor.id }) }}" method="delete">
-                        <button type="submit" class="btn btn-danger">
-                            <div class="d-flex justify-content-between align-items-center" style="width: 110px;">
-                                <twig:ux:icon name="fluent:delete-32-filled" width="24px" height="24px" />
-                                Supprimer
-                            </div>
-                        </button>
-                    </form>
+                    <twig:Admin:Form:ButtonRemove
+                        action="app_admin_editor_remove"
+                        :parameters="{ id: editor.id }" />
                 {% endif %}
             </div>
         </div>

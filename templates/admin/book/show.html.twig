@@ -46,17 +46,20 @@
                 <div>Livre non trouvé</div>
             {% endif %}
             <div class="d-flex p-2">
-                <a href="{{ path('app_admin_book_index') }}" class="btn btn-primary me-4">
-                    <div class="d-flex justify-content-between align-items-center" style="width: 80px;">
-                        <twig:ux:icon name="typcn:arrow-back" width="24px" height="24px" />
-                        Retour
-                    </div>
-                </a>
+                <twig:ButtonAction
+                    name="Retour"
+                    action="app_admin_book_index"
+                    type="primary"
+                    width="80"
+                    icon="typcn:arrow-back" />
                 {% if is_granted('ROLE_EDITION_DE_LIVRE') %}
-                    <a href="{{ path('app_admin_book_edit', { id: book.id }) }}" class="btn btn-warning">
-                        <twig:ux:icon name="hugeicons:book-edit" width="24px" height="24px" />
-                        Editer
-                    </a>
+                    <twig:ButtonAction
+                        name="Editer"
+                        action="app_admin_book_edit"
+                        :parameters="{ id: book.id }"
+                        icon="hugeicons:book-edit"
+                        width="75"
+                        type="warning" />
                 {% endif %}
             </div>
     </section>

@@ -25,21 +25,16 @@
                 <div>Utilisateur non trouvé</div>
             {% endif %}
             <div class="d-flex p-2">
-                <a href="{{ path('app_admin_user_index') }}" class="btn btn-primary me-4">
-                    <div class="d-flex justify-content-between align-items-center" style="width: 80px;">
-                        <twig:ux:icon name="typcn:arrow-back" width="24px" height="24px" />
-                        Retour
-                    </div>
-                </a>
+                <twig:ButtonAction
+                    name="Retour"
+                    action="app_admin_user_index"
+                    type="primary"
+                    width="80"
+                    icon="typcn:arrow-back" />
                 {% if is_granted('ROLE_ADMIN') %}
-                    <form action="{{ path('app_admin_user_remove', { id: user.id }) }}" method="delete">
-                        <button type="submit" class="btn btn-danger">
-                            <div class="d-flex justify-content-between align-items-center" style="width: 110px;">
-                                <twig:ux:icon name="fluent:delete-32-filled" width="24px" height="24px" />
-                                Supprimer
-                            </div>
-                        </button>
-                    </form>
+                    <twig:Admin:Form:ButtonRemove
+                        action="app_admin_user_remove"
+                        :parameters="{ id: user.id }" />
                 {% endif %}
             </div>
         </div>
