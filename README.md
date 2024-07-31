@@ -63,6 +63,7 @@ On peut connaître les commandes de base en exécutant la commande `castor` ou v
 
 ## Time line
 
-- le 28 juillet 2024 : Utilisation de [Symfony UX Icons](https://ux.symfony.com/icons).
-- le 26 juillet 2024 : Utilisation de Castor by @jolicode .
+- le 31 juillet 2024 : Utilisation de [Twig Components](https://ux.symfony.com/twig-component) - regardez la branche `init-twig-components`.
+- le 28 juillet 2024 : Utilisation de [Symfony UX Icons](https://ux.symfony.com/icons) - regardez la branche `ajout-des-icons-components`.
+- le 26 juillet 2024 : Utilisation de Castor by @jolicode - regardez la branche `init-le-task-runner-castor`.
 - le 29 juin 2024 : Fin du cours d'OpenClassrooms dont le code est préservé à partir de cette date dans la branche `code-du-cours-symfony-7-d-openclassroom`.
