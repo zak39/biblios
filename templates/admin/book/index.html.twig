@@ -9,28 +9,16 @@
         <h1>Liste de livres</h1>
 
         {% if is_granted('ROLE_AJOUT_DE_LIVRE') %}
-            <div class="m-4">
-                <a class="btn btn-primary" role="button" href="{{ path('app_admin_book_new')}}">
-                    <div class="d-flex justify-content-between align-items-center" style="width: 130px;">
-                        <twig:ux:icon name="fluent:book-add-24-filled" width="24px" height="24px"/>
-                        Créer un livre
-                    </div>
-                </a>
-            </div>
+            <twig:Admin:ButtonNewEntity
+                name="Créer un livre"
+                action="app_admin_book_new"
+                width="130"
+                icon="fluent:book-add-24-filled" />
         {% endif %}
 
         <ul class="list-group list-group-flush">
             {% for book in books %}
-                <div class="card mb-1">
-                    <div class="card-body">
-                        <div class="card-title d-flex justify-content-between">
-                            <a href="{{ path('app_admin_book_show', { id: book.id }) }}" class="stretched-link link-dark">
-                                <h4 class="mb-1">{{ book.title }}</h4>
-                            </a>
-                            <small class="text-muted">Identifiant : {{ book.id }}</small>
-                        </div>
-                    </div>
-                </div>
+                <twig:Admin:BookCard id="{{ book.id }}" title="{{ book.title }}" />
                 {% else %}
                     <li>Aucun enregistrement en base de données.</li>
             {% endfor %}

@@ -30,19 +30,20 @@
                 <div>Auteur non trouvé</div>
             {% endif %}
             <div class="d-flex p-2">
-                <a href="{{ path('app_admin_author_index') }}" class="btn btn-primary me-4">
-                <div class="d-flex justify-content-between align-items-center" style="width: 80px;">
-                    <twig:ux:icon name="typcn:arrow-back" width="24px" height="24px" />
-                    Retour
-                </div>
-                </a>
+                <twig:ButtonAction
+                    name="Retour"
+                    action="app_admin_author_index"
+                    type="primary"
+                    icon="typcn:arrow-back"
+                    width="80" />
                 {% if is_granted('ROLE_EDITION_DE_LIVRE') %}
-                    <a href="{{ path('app_admin_author_edit', { id: author.id }) }}" class="btn btn-warning">
-                        <div class="d-flex justify-content-between align-items-center" style="width: 75px;">
-                            <twig:ux:icon name="ic:twotone-edit" width="24px" height="24px" />
-                            Editer
-                        </div>
-                    </a>
+                    <twig:ButtonAction
+                        name="Editer"
+                        action="app_admin_author_edit"
+                        :parameters="{ id: author.id }"
+                        type="warning"
+                        icon="ic:twotone-edit"
+                        width="75" />
                 {% endif %}
             </div>
         </div>
