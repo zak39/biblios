@@ -14,9 +14,15 @@ function hello(): void
 }
 
 #[AsTask(description: 'Run the server in background', aliases: ['sf:start'])]
-function start(): void
+function start(bool $detach = false): void
 {
-    $result = run('symfony server:start -d');
+    $cmd = ['symfony', 'server:start'];
+    
+    if ($detach) {
+        $cmd[] = '-d';
+    }
+
+    $result = run($cmd);
 
     if(!$result->isSuccessful()) {
         io()->error('Impossible to run the server');
@@ -35,4 +41,10 @@ function stop(): void
     }
 
     io()->success('The server is stopped');
+}
+
+#[AsTask(description: 'Know the server status', aliases: ['sf:status'])]
+function status(): void
+{
+    run('symfony server:status');
 }
