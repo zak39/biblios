@@ -20,6 +20,14 @@ function start(bool $quietly = false, bool $detach = false): void
     sfStart($detach);
 }
 
+#[AsTask(description: 'Start the web server and all docker services', aliases: ['start:demo'])]
+function startDemo(bool $quietly = false): void
+{
+    up($quietly);
+    migrate($quietly);
+    fixtures($quietly);
+}
+
 #[AsTask(description: 'Stop the web server and all docker services', aliases: ['stop'])]
 function stop(bool $quietly = false, bool $purge = false): void
 {
