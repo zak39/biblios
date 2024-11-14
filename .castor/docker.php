@@ -9,7 +9,7 @@ use function Castor\io;
 use function Castor\run;
 
 #[AsTask(description: 'Up services docker', aliases: ['d:u'])]
-function up(bool $quietly) {
+function up(bool $quietly = false) {
     $dockerUp = run('docker compose up -d', context: context()->withQuiet($quietly));
 
     if (!$dockerUp->isSuccessful()) {
