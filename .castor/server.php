@@ -11,7 +11,9 @@ use function docker\up;
 use function symfony\start as sfStart;
 use function symfony\stop as sfStop;
 
-#[AsTask(description: 'Start the web server and all docker services', aliases: ['start'])]
+#[AsTask(
+    description: 'Start the web server and all docker services. It can use as dev environment.',
+    aliases: ['start'])]
 function start(bool $quietly = false, bool $detach = false): void
 {
     up($quietly);
