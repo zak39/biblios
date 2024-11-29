@@ -16,7 +16,12 @@
         {% endblock %}
     </head>
     <body id="page-top">
-        {{ include('navigation.html.twig') }}
+        <div class="fixed-top">
+            {% if app.environment == 'production' %}
+                <twig:Demo:Banner />
+            {% endif %}
+            {{ include('navigation.html.twig') }}
+        </div>
         {% block body %}
         {% endblock %}
     </body>

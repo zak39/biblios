@@ -1,0 +1,21 @@
+<div class="alert alert-warning mt-4" role="alert">
+    <h4 class="alert-heading">⚠️ Utilisation et comptes!</h4>
+    <p>Attention ! Vous pouvez vous connecter et manipuler les données, notamment créer, supprimer ou modifier des éléments. Ces modifications seront visibles par tous les utilisateurs !</p>
+    <p>Les données sont automatiquement réinitialisées toutes les heures.</p>
+    <hr>
+    <h5 class="alert-heading">Comptes</h5>
+
+    <p>Tous les comptes ci-dessous utilisent le mot de passe <b>password</b>.</p>
+
+    <twig:Demo:Alert:UserDemo 
+        message="Comptes pouvant être administrateur :"
+        users="{{ users.admin }}" />
+
+    <twig:Demo:Alert:UserDemo 
+        message="Comptes pouvant ajouter des livres :"
+        users="{{ users.adders_book }}" />
+
+    <twig:Demo:Alert:UserDemo 
+        message="Comptes pouvant éditer des livres :"
+        users="{{ users.editors_book }}" />
+</div>
