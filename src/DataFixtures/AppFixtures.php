@@ -27,7 +27,7 @@ class AppFixtures extends Fixture
             ->setFirstname('admin')
             ->setEmail('admin@biblios.fr')
             ->setPassword(
-                $this->passwordHasher->hashPassword($user, 'ribcage-comprised-filing')
+                $this->passwordHasher->hashPassword($user, 'password')
             )
             ->setRoles(['ROLE_ADMIN'])
         ;
