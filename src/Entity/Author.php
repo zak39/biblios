@@ -24,6 +24,7 @@ class Author
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    #[Assert\LessThan('today')]
     #[Assert\NotBlank()]
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     private ?\DateTimeImmutable $dateOfBirth = null;
