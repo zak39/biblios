@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Impossible de trouver la page{% endblock %}
+
+{% block body %}
+    <div class="custom-bg text-dark">
+        <div class="d-flex align-items-center justify-content-center min-vh-100 px-2">
+            <div class="text-center">
+                <h1 class="display-1 fw-bold">404</h1>
+                <p class="fs-2 fw-medium mt-4">Oops! Impossible de trouver la page.</p>
+                <p class="mt-4 mb-5">La page que vous recherchez n'existe pas ou a été déplacée.</p>
+                <a href={{ path('app_home') }} class="btn btn-primary fw-semibold rounded-pill px-4 py-2 custom-btn">
+                    Retourner à la page d'accueil
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
