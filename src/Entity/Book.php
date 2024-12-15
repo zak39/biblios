@@ -81,7 +81,7 @@ class Book
         return $this->title;
     }
 
-    public function setTitle(string $title): static
+    public function setTitle(?string $title): static
     {
         $this->title = $title;
 
@@ -93,7 +93,7 @@ class Book
         return $this->isbn;
     }
 
-    public function setIsbn(string $isbn): static
+    public function setIsbn(?string $isbn): static
     {
         $this->isbn = $isbn;
 
@@ -105,7 +105,7 @@ class Book
         return $this->cover;
     }
 
-    public function setCover(string $cover): static
+    public function setCover(?string $cover): static
     {
         $this->cover = $cover;
 
@@ -117,7 +117,7 @@ class Book
         return $this->editedAt;
     }
 
-    public function setEditedAt(\DateTimeImmutable $editedAt): static
+    public function setEditedAt(?\DateTimeImmutable $editedAt): static
     {
         $this->editedAt = $editedAt;
 
@@ -129,7 +129,7 @@ class Book
         return $this->plot;
     }
 
-    public function setPlot(string $plot): static
+    public function setPlot(?string $plot): static
     {
         $this->plot = $plot;
 
@@ -141,7 +141,7 @@ class Book
         return $this->pageNumber;
     }
 
-    public function setPageNumber(int $pageNumber): static
+    public function setPageNumber(?int $pageNumber): static
     {
         $this->pageNumber = $pageNumber;
 
@@ -153,7 +153,7 @@ class Book
         return $this->status;
     }
 
-    public function setStatus(BookStatus $status): static
+    public function setStatus(?BookStatus $status): static
     {
         $this->status = $status;
 

@@ -57,7 +57,7 @@ class Author
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(?string $name): static
     {
         $this->name = $name;
 
@@ -69,7 +69,7 @@ class Author
         return $this->dateOfBirth;
     }
 
-    public function setDateOfBirth(\DateTimeImmutable $dateOfBirth): static
+    public function setDateOfBirth(?\DateTimeImmutable $dateOfBirth): static
     {
         $this->dateOfBirth = $dateOfBirth;
 
