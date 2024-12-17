@@ -9,8 +9,16 @@ use function Castor\io;
 use function Castor\run;
 
 #[AsTask(description: 'Up services docker', aliases: ['d:u'])]
-function up(bool $quietly = false) {
-    $dockerUp = run('docker compose up -d', context: context()->withQuiet($quietly));
+function up(bool $quietly = false, ?array $services = null) {
+    $commands = ['docker', 'compose', 'up'];
+
+    if (!is_null($services)) {
+        $commands = array_merge($commands, $services);
+    }
+
+    $commands[] = '-d';
+    
+    $dockerUp = run($commands, context: context()->withQuiet($quietly));
 
     if (!$dockerUp->isSuccessful()) {
         io()->error('Impossible to up services with docker');

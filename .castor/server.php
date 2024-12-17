@@ -4,6 +4,7 @@ namespace server;
 
 use Castor\Attribute\AsTask;
 
+use function composer\install;
 use function database\fixtures;
 use function database\migrate;
 use function docker\down;
@@ -14,17 +15,25 @@ use function symfony\stop as sfStop;
 #[AsTask(
     description: 'Start the web server and all docker services. It can use as dev environment.',
     aliases: ['start'])]
-function start(bool $quietly = false, bool $detach = false): void
+function start(bool $quietly = false, bool $detach = false, bool $firstInstall = false): void
 {
-    up($quietly);
+    if ($firstInstall) {
+        install($quietly);
+    }
+
+    up($quietly, services: ['database']);
     migrate($quietly);
     fixtures($quietly);
     sfStart($detach);
 }
 
 #[AsTask(description: 'Start the web server and all docker services', aliases: ['start:demo'])]
-function startDemo(bool $quietly = false): void
+function startDemo(bool $quietly = false, bool $firstInstall = false): void
 {
+    if ($firstInstall) {
+        install($quietly);
+    }
+
     up($quietly);
     migrate($quietly);
     fixtures($quietly);

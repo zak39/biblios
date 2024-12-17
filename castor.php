@@ -9,6 +9,7 @@ import(__DIR__ . '/.castor/server.php');
 import(__DIR__ . '/.castor/symfony.php');
 import(__DIR__ . '/.castor/database.php');
 import(__DIR__ . '/.castor/docker.php');
+import(__DIR__ . '/.castor/composer.php');
 
 #[AsTask(description: 'Getting Started to begin with commands', aliases: ['started'])]
 function gettingStarted(): void {
